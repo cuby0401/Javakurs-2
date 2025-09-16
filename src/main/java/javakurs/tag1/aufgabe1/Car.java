@@ -1,4 +1,4 @@
-package javakurs.tag1;
+package javakurs.tag1.aufgabe1;
 
 public class Car {
     private String brand;
