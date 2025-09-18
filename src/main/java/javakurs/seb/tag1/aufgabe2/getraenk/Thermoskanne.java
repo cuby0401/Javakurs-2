@@ -1,6 +1,6 @@
-package javakurs.tag1.aufgabe2.getraenk;
+package javakurs.seb.tag1.aufgabe2.getraenk;
 
-import javakurs.tag1.aufgabe2.gefaess.Getraenk;
+import javakurs.seb.tag1.aufgabe2.gefaess.Getraenk;
 
 public class Thermoskanne extends Gefaess {
     public Thermoskanne(Getraenk getraenk) {

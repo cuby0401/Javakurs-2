@@ -1,6 +1,6 @@
-package javakurs.tag1.aufgabe2.gefaess;
+package javakurs.seb.tag1.aufgabe2.gefaess;
 
-import javakurs.tag1.aufgabe2.getraenk.Gefaess;
+import javakurs.seb.tag1.aufgabe2.getraenk.Gefaess;
 
 abstract class Heißgetraenk extends Getraenk {
     protected Heißgetraenk(double temperatur, double menge, boolean zucker, Gefaess gefaess) {
