@@ -4,8 +4,24 @@ public class Tesla extends Elektroauto
 {
     private boolean autopilot;
 
-    @Override
-    public void fahre() {
+    public Tesla(double akkuKapazitaet)
+    {
+        super(akkuKapazitaet);
+    }
 
+    @Override
+    public void fahre()
+    {
+
+    }
+
+    public boolean isAutopilot()
+    {
+        return autopilot;
+    }
+
+    public void setAutopilot(boolean autopilot)
+    {
+        this.autopilot = autopilot;
     }
 }

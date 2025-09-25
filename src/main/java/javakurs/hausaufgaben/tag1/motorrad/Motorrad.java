@@ -6,7 +6,18 @@ public abstract class Motorrad extends Fahrzeug
 {
     private boolean hatBeiwagen;
 
-    public Motorrad() {
+    public Motorrad()
+    {
         super();
+    }
+
+    public boolean isHatBeiwagen()
+    {
+        return hatBeiwagen;
+    }
+
+    public void setHatBeiwagen(boolean hatBeiwagen)
+    {
+        this.hatBeiwagen = hatBeiwagen;
     }
 }

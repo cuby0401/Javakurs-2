@@ -6,6 +6,8 @@ import java.util.List;
 public class Fahrer
 {
     private final List<Fahrzeug> fahrzeuge = new LinkedList<>();
+    private String name;
+    private int fuehrerscheinNr;
 
     public Fahrer()
     {
@@ -17,15 +19,30 @@ public class Fahrer
 
             }
         };
-
         fahrzeuge.add(erstesFahrzeug);
     }
+
     public List<Fahrzeug> getFahrzeuge()
     {
         return Collections.unmodifiableList(fahrzeuge);
     }
 
-    private String name;
-    private String fuehrerscheinNr;
+    public String getName() {
+        return name;
+    }
 
+    public void setName(String name)
+    {
+        this.name = name;
+    }
+
+    public int getFuehrerscheinNr()
+    {
+        return fuehrerscheinNr;
+    }
+
+    public void setFuehrerscheinNr(int fuehrerscheinNr)
+    {
+        this.fuehrerscheinNr = fuehrerscheinNr;
+    }
 }
