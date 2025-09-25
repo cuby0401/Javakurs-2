@@ -9,9 +9,12 @@ public class Fahrer
     private String name;
     private int fuehrerscheinNr;
 
-    public Fahrer()
+    /**
+     * Konstruktor für den abstrakten Methoden Zugriff.
+     */
+    protected Fahrer()
     {
-        final Fahrzeug erstesFahrzeug = new Fahrzeug(this)
+        final Fahrzeug fahrzeug = new Fahrzeug(this)
         {
             @Override
             public void fahre()
@@ -19,15 +22,16 @@ public class Fahrer
 
             }
         };
-        fahrzeuge.add(erstesFahrzeug);
+        fahrzeuge.add(fahrzeug);
     }
 
-    public List<Fahrzeug> getFahrzeuge()
+    protected List<Fahrzeug> getFahrzeuge()
     {
         return Collections.unmodifiableList(fahrzeuge);
     }
 
-    public String getName() {
+    public String getName()
+    {
         return name;
     }
 

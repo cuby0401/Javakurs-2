@@ -4,9 +4,12 @@ import javakurs.hausaufgaben.tag1.Fahrzeug;
 
 public abstract class Auto extends Fahrzeug
 {
-    private int anzahlTueren;
+    protected int anzahlTueren;
 
-    public Auto()
+    /**
+     * Konstruktor mit super aufruf.
+     */
+    protected Auto()
     {
         super();
 

@@ -3,15 +3,22 @@ package javakurs.hausaufgaben.tag1;
 public abstract class Fahrzeug
 {
     private Fahrer fahrer;
-    private static int baujahr;
-    private static String marke;
+    protected static int baujahr;
+    protected static String marke;
     public abstract void fahre();
 
+    /**
+     * Konstruktor für den Zugriff der abstrakten Methode
+     */
     protected Fahrzeug()
     {
 
     }
 
+    /**
+     * Konstruktor für die Komposition mit FahrzeugFlotte
+     * @param fahrzeugFlotte
+     */
     protected Fahrzeug(FahrzeugFlotte fahrzeugFlotte)
     {
         if (fahrzeugFlotte == null) {
@@ -19,6 +26,10 @@ public abstract class Fahrzeug
         }
     }
 
+    /**
+     * Konstruktur für die Komposition mit Fahrer
+     * @param fahrer
+     */
     protected Fahrzeug(Fahrer fahrer)
     {
         this.fahrer = fahrer;

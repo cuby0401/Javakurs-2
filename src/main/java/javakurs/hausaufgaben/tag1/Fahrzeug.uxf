@@ -4,144 +4,144 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>624</x>
-      <y>304</y>
+      <x>832</x>
+      <y>112</y>
       <w>336</w>
       <h>160</h>
     </coordinates>
     <panel_attributes>&lt;&lt;abstract&gt;&gt;
 /Fahrzeug/
 --
-marke: String
-baujahr: int
+# marke: String
+# baujahr: int
 --
-fahre(): void</panel_attributes>
++ fahre(): void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>288</x>
-      <y>560</y>
+      <x>496</x>
+      <y>368</y>
       <w>336</w>
       <h>96</h>
     </coordinates>
     <panel_attributes>&lt;&lt;abstract&gt;&gt;
 /Auto/
 --
-anzahlTueren: int</panel_attributes>
+# anzahlTueren: int</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>960</x>
-      <y>560</y>
+      <x>1168</x>
+      <y>368</y>
       <w>336</w>
       <h>80</h>
     </coordinates>
     <panel_attributes>Motorrad
 --
-hatBeiwagen: boolean</panel_attributes>
+# hatBeiwagen: boolean</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>112</x>
-      <y>704</y>
+      <x>320</x>
+      <y>512</y>
       <w>336</w>
       <h>80</h>
     </coordinates>
     <panel_attributes>ElektroAuto
 --
-akkuKapazitaet: double</panel_attributes>
+# akkuKapazitaet: double</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>464</x>
-      <y>704</y>
+      <x>672</x>
+      <y>512</y>
       <w>336</w>
       <h>80</h>
     </coordinates>
     <panel_attributes>VerbrennerAuto
 --
-tankVolumen: double</panel_attributes>
+# tankVolumen: double</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>960</x>
-      <y>704</y>
+      <x>1168</x>
+      <y>512</y>
       <w>336</w>
       <h>80</h>
     </coordinates>
     <panel_attributes>SportMotorrad
 --
-maxGeschwindigkeit: int</panel_attributes>
+- maxGeschwindigkeit: int</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>112</x>
-      <y>864</y>
+      <x>320</x>
+      <y>672</y>
       <w>336</w>
       <h>80</h>
     </coordinates>
     <panel_attributes>Tesla
 --
-autopilot: boolean</panel_attributes>
+- autopilot: boolean</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>464</x>
-      <y>864</y>
+      <x>672</x>
+      <y>672</y>
       <w>336</w>
       <h>80</h>
     </coordinates>
     <panel_attributes>VWGolf
 --
-abgasnorm: String</panel_attributes>
+- abgasnorm: String</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>272</x>
-      <y>112</y>
+      <x>0</x>
+      <y>160</y>
       <w>336</w>
       <h>96</h>
     </coordinates>
     <panel_attributes>Fahrer
 --
-name: String
-fuehrerscheinNr: String</panel_attributes>
+- name: String
+- fuehrerscheinNr: int</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>976</x>
-      <y>112</y>
+      <x>1744</x>
+      <y>160</y>
       <w>336</w>
       <h>80</h>
     </coordinates>
     <panel_attributes>FahrzeugFlotte
 --
-flottenLaenge: int</panel_attributes>
+- flottenLaenge: int</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>944</x>
-      <y>448</y>
+      <x>1152</x>
+      <y>256</y>
       <w>224</w>
       <h>144</h>
     </coordinates>
@@ -151,8 +151,8 @@ flottenLaenge: int</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>432</x>
-      <y>448</y>
+      <x>640</x>
+      <y>256</y>
       <w>224</w>
       <h>144</h>
     </coordinates>
@@ -162,8 +162,8 @@ flottenLaenge: int</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>256</x>
-      <y>640</y>
+      <x>464</x>
+      <y>448</y>
       <w>64</w>
       <h>96</h>
     </coordinates>
@@ -173,8 +173,8 @@ flottenLaenge: int</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>608</x>
-      <y>640</y>
+      <x>816</x>
+      <y>448</y>
       <w>64</w>
       <h>96</h>
     </coordinates>
@@ -184,8 +184,8 @@ flottenLaenge: int</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1120</x>
-      <y>624</y>
+      <x>1328</x>
+      <y>432</y>
       <w>48</w>
       <h>112</h>
     </coordinates>
@@ -195,8 +195,8 @@ flottenLaenge: int</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>256</x>
-      <y>768</y>
+      <x>464</x>
+      <y>576</y>
       <w>48</w>
       <h>128</h>
     </coordinates>
@@ -206,8 +206,8 @@ flottenLaenge: int</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>608</x>
-      <y>768</y>
+      <x>816</x>
+      <y>576</y>
       <w>48</w>
       <h>128</h>
     </coordinates>
@@ -217,32 +217,33 @@ flottenLaenge: int</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>368</x>
-      <y>192</y>
-      <w>288</w>
-      <h>256</h>
-    </coordinates>
-    <panel_attributes>lt=-
-m1=1
-m2=0..
-owns &gt;</panel_attributes>
-    <additional_attributes>30.0;10.0;30.0;130.0;160.0;130.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>944</x>
+      <x>320</x>
       <y>176</y>
-      <w>304</w>
-      <h>272</h>
+      <w>544</w>
+      <h>80</h>
     </coordinates>
-    <panel_attributes>lt=-
-m1=1
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=0..*
 m2=1
-r1=0..
-r2=1
-&lt; contains
- &gt;</panel_attributes>
-    <additional_attributes>10.0;140.0;140.0;140.0;140.0;10.0</additional_attributes>
+r1=- fahrzeug
+r2=- fahrer
+contains</panel_attributes>
+    <additional_attributes>320.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1152</x>
+      <y>176</y>
+      <w>624</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1..*
+m2=1
+r1=-fahrzeug
+r2=fahzeugFlotte
+&lt; contains</panel_attributes>
+    <additional_attributes>10.0;20.0;370.0;20.0</additional_attributes>
   </element>
 </diagram>

@@ -4,7 +4,10 @@ public class VWGolf extends VerbrennerAuto
 {
     private String abgasnorm;
 
-    public VWGolf(double tankVolumen)
+    /**
+     * Konstruktor mit super aufruf.
+     */
+    protected VWGolf(double tankVolumen)
     {
         super(tankVolumen);
     }

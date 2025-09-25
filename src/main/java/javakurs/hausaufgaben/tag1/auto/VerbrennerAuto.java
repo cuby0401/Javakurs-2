@@ -2,9 +2,9 @@ package javakurs.hausaufgaben.tag1.auto;
 
 public abstract class VerbrennerAuto extends Auto
 {
-    private double tankVolumen;
+    protected double tankVolumen;
 
-    public VerbrennerAuto(double tankVolumen)
+    protected VerbrennerAuto(double tankVolumen)
     {
         this.tankVolumen = tankVolumen;
     }

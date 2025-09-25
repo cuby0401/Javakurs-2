@@ -2,9 +2,9 @@ package javakurs.hausaufgaben.tag1.auto;
 
 public abstract class Elektroauto extends Auto
 {
-    private double akkuKapazitaet;
+    protected double akkuKapazitaet;
 
-    public Elektroauto(double akkuKapazitaet)
+    protected Elektroauto(double akkuKapazitaet)
     {
         this.akkuKapazitaet = akkuKapazitaet;
     }

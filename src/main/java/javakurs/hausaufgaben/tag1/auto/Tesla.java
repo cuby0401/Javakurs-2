@@ -4,7 +4,10 @@ public class Tesla extends Elektroauto
 {
     private boolean autopilot;
 
-    public Tesla(double akkuKapazitaet)
+    /**
+     * Konstruktor mit super aufruf.
+     */
+    protected Tesla(double akkuKapazitaet)
     {
         super(akkuKapazitaet);
     }

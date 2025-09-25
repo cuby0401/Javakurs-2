@@ -4,9 +4,12 @@ import javakurs.hausaufgaben.tag1.Fahrzeug;
 
 public abstract class Motorrad extends Fahrzeug
 {
-    private boolean hatBeiwagen;
+    protected boolean hatBeiwagen;
 
-    public Motorrad()
+    /**
+     * Konstruktor mit super aufruf.
+     */
+    protected Motorrad()
     {
         super();
     }
