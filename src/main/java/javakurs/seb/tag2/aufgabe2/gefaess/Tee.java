@@ -1,0 +1,14 @@
+package javakurs.seb.tag2.aufgabe2.gefaess;
+
+import javakurs.seb.tag2.aufgabe2.getraenk.Gefaess;
+
+public class Tee extends Heißgetraenk {
+    private String sorte;
+    private int ziehzeit;
+
+    public Tee(double temperatur, double menge, boolean zucker, Gefaess gefaess, String sorte, int ziehzeit) {
+        super(temperatur, menge, zucker, gefaess);
+        this.sorte = sorte;
+        this.ziehzeit = ziehzeit;
+    }
+}
