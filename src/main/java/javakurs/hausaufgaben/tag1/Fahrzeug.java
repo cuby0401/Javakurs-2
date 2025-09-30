@@ -9,9 +9,7 @@ public abstract class Fahrzeug
         this.fahrer = fahrer;
     }
 
-    public Fahrzeug() {
-
-    }
+    public Fahrzeug() {}
 
     public Fahrer getFahrer()
     {
