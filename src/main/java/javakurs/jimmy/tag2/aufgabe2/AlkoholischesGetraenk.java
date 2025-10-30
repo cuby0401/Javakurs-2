@@ -1,5 +1,6 @@
 package javakurs.jimmy.tag2.aufgabe2;
 
-public interface AlkoholischesGetraenk {
+public interface AlkoholischesGetraenk
+{
     double getAlkoholgehalt();
 }
