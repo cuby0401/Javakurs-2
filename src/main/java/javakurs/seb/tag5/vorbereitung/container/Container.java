@@ -1,7 +1,7 @@
-package javakurs.seb.tag5.container;
+package javakurs.seb.tag5.vorbereitung.container;
 
 
-import javakurs.seb.tag5.beverage.Beverage;
+import javakurs.seb.tag5.vorbereitung.beverage.Beverage;
 
 /**
  * Basis-Klasse für Container in denen Getränke aufbewahrt werden können.

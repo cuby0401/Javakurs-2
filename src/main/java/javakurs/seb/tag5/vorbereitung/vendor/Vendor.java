@@ -1,10 +1,10 @@
-package javakurs.seb.tag5.vendor;
+package javakurs.seb.tag5.vorbereitung.vendor;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import javakurs.seb.tag5.automat.VendingMachine;
-import javakurs.seb.tag5.supplier.VendingMachineSupplier;
+import javakurs.seb.tag5.vorbereitung.automat.VendingMachine;
+import javakurs.seb.tag5.vorbereitung.supplier.VendingMachineSupplier;
 
 
 /**

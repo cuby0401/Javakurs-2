@@ -1,4 +1,4 @@
-package javakurs.seb.tag5.beverage;
+package javakurs.seb.tag5.vorbereitung.beverage;
 
 /**
  * <h2>Beispiel Getränk</h2>

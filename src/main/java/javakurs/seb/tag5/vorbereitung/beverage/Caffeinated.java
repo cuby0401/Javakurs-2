@@ -1,4 +1,4 @@
-package javakurs.seb.tag5.beverage;
+package javakurs.seb.tag5.vorbereitung.beverage;
 
 /**
  * Kann von Getränken {@link Beverage} implementiert werden, um zu zeigen, dass diese einen Koffeingehalt haben.

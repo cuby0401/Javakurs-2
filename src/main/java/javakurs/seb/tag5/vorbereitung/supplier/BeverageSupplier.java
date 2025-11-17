@@ -1,8 +1,8 @@
-package javakurs.seb.tag5.supplier;
+package javakurs.seb.tag5.vorbereitung.supplier;
 
 import java.util.Set;
 
-import javakurs.seb.tag5.beverage.Beverage;
+import javakurs.seb.tag5.vorbereitung.beverage.Beverage;
 
 
 /**

@@ -1,4 +1,4 @@
-package javakurs.seb.tag5.automat;
+package javakurs.seb.tag5.vorbereitung.automat;
 
 /**
  * Falls bei einer Operation im Getränkeautomat {@link VendingMachine} ein Fehler auftritt, so wird diese Exception geworfen.

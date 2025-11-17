@@ -1,4 +1,4 @@
-package javakurs.seb.tag5.beverage;
+package javakurs.seb.tag5.vorbereitung.beverage;
 
 /**
  * Falls von einer Getränkesorte im Automaten nichts mehr vorhanden ist, so wird diese Exception geworfen.

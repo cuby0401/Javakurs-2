@@ -1,7 +1,7 @@
-package javakurs.seb.tag5.container;
+package javakurs.seb.tag5.vorbereitung.container;
 
 
-import javakurs.seb.tag5.beverage.Beverage;
+import javakurs.seb.tag5.vorbereitung.beverage.Beverage;
 
 /**
  * Repräsentation eine Flasche, in die 0,5 Liter passen.

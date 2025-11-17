@@ -1,9 +1,9 @@
-package javakurs.seb.tag5.beverage;
+package javakurs.seb.tag5.vorbereitung.beverage;
 
 import java.util.Objects;
 
 /**
- * Basis-Klasse für alle Getränke, die über {@link import javakurs.seb.tag5.automat.VendingMachine;} vertrieben werden können.
+ * Basis-Klasse für alle Getränke, die über {@link import javakurs.seb.tag5.vorbereitung.automat.VendingMachine;} vertrieben werden können.
  *
  * @author Christoph Gragert (cgr@shd.de)
  */

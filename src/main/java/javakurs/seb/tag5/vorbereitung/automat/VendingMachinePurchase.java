@@ -1,8 +1,8 @@
-package javakurs.seb.tag5.automat;
+package javakurs.seb.tag5.vorbereitung.automat;
 
 
-import javakurs.seb.tag5.beverage.Beverage;
-import javakurs.seb.tag5.container.Bottle;
+import javakurs.seb.tag5.vorbereitung.beverage.Beverage;
+import javakurs.seb.tag5.vorbereitung.container.Bottle;
 
 /**
  * Wrapper für den Kauf einer Flasche bei einem Getränkeautomaten.
