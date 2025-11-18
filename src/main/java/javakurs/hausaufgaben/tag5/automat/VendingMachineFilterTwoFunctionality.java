@@ -19,7 +19,7 @@ public interface VendingMachineFilterTwoFunctionality
     * <h2>Aufgabe 14</h2>
     * Liefert eine Map zurück, die alle Getränke nach ihrer Klasse gruppiert.
     * <h3>Tipp</h3>
-    * Recherchiert, welche Methode aus {@link java.util.stream.Collectors} euch Datensätz gruppieren lässt.
+    * Recherchiert, welche Methode aus {@link java.util.stream.Collectors} euch Datensätze gruppieren lässt.
     */
    Map<Class<? extends Beverage>, List<Beverage>> getBeveragesGroupedByClass();
 
@@ -56,7 +56,7 @@ public interface VendingMachineFilterTwoFunctionality
 
    /**
     * <h2>Aufgabe 18</h2>
-    * Liefert eine Liste mit allen Füllständen zurück. Die Füllstände soll eindeutig sein, d.h. es dürfen keine doppelten Einträge in der Liste
+    * Liefert eine Liste mit allen Füllständen zurück. Die Füllstände sollen eindeutig sein, d.h. es dürfen keine doppelten Einträge in der Liste
     * vorkommen.
     * <h3>Tipp</h3>
     * Recherchiert, welche Methode aus {@link java.util.stream.Stream} euch dabei hilft, die doppelten Einträge zu entfernen.

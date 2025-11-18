@@ -7,7 +7,7 @@ package javakurs.hausaufgaben.tag5.beverage;
  *
  * @author Christoph Gragert (cgr@shd.de)
  */
-public class Cola extends Beverage
+public class Cola extends Beverage implements Caffeinated
 {
    public Cola(String name, double pricePerLiter, double amount)
    {
@@ -27,4 +27,9 @@ public class Cola extends Beverage
    {
       return new Cola(beverage, amount);
    }
+
+    @Override
+    public double getCaffeineStrength() {
+        return 10;
+    }
 }

@@ -1,16 +1,12 @@
 package javakurs.hausaufgaben.tag5.automat;
 
-import javakurs.hausaufgaben.tag5.beverage.Alcoholic;
-import javakurs.hausaufgaben.tag5.beverage.Beverage;
-import javakurs.hausaufgaben.tag5.beverage.Caffeinated;
+import javakurs.hausaufgaben.tag5.beverage.*;
 import javakurs.hausaufgaben.tag5.container.Bottle;
 import javakurs.hausaufgaben.tag5.supplier.BeverageSupplier;
 import javakurs.hausaufgaben.tag5.automat.VendingMachineSalesFunctionality;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
+import java.util.function.Predicate;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
@@ -30,7 +26,7 @@ import java.util.stream.Collectors;
  *
  * @author Christoph Gragert (cgr@shd.de)
  */
-public class VendingMachine implements VendingMachineDisplayFunctionality, VendingMachineFilterOneFunctionality, VendingMachineSalesFunctionality
+public class VendingMachine implements VendingMachineDisplayFunctionality, VendingMachineFilterOneFunctionality, VendingMachineSalesFunctionality, BeverageSupplier,VendingMachineFilterTwoFunctionality, VendingMachineStatisticsFunctionality
 {
     /**
     * Getränke, mit denen der Automat befüllt wurde.
@@ -177,6 +173,98 @@ public class VendingMachine implements VendingMachineDisplayFunctionality, Vendi
         }
         double singlePrice = calculatePriceForOneBottleOf(name);
         return singlePrice * numberOfBottles;
+    }
+
+    @Override
+    public Set<Beverage> supplyBeverages() {
+        return Set.of(
+                new Beer("Beer Classic", 3.50, 4.0),
+                new Beer("Beer Dark", 4.20, 5.0),
+
+                new Cola("Cola Original", 2.80, 6.0),
+                new Cola("Cola Cherry", 3.00, 6.0),
+
+                new EspressoMartini("Espresso Martini Standard", 10.00, 5.0),
+                new EspressoMartini("Espresso Martini Vanilla", 11.00, 5.0),
+
+                new Coffee("Coffee Mild", 2.50, 60.0),
+                new Coffee("Coffee Dark", 2.80, 65.0),
+
+                new Water("Water Still", 1.00, 8.0),
+                new Water("Water Sparkling", 1.20, 8.0)
+        );
+    }
+
+    @Override
+    public Map<Class<? extends Beverage>, List<Beverage>> getBeveragesGroupedByClass() {
+        return beverages.stream()
+                .collect(Collectors.groupingBy(Beverage::getClass));
+    }
+
+    @Override
+    public List<Beverage> getAllBeveragesWithAmountBelowThreshold(int threshold) {
+        return List.of();
+    }
+
+    @Override
+    public Map<String, Beverage> getAllBeveragesMappedByName() {
+        return beverages.stream()
+                .collect(Collectors.toMap(Beverage::getName, b -> b));
+    }
+
+    @Override
+    public List<Beverage> getListByFilter(Predicate<Beverage> filter) {
+        return beverages.stream()
+                .filter(filter)
+                .toList();
+    }
+
+    @Override
+    public List<Double> getListOfCurrentAmountsOfBeverages() {
+        return beverages.stream()
+                .map(Beverage::getAmount)
+                .distinct()
+                .toList();
+    }
+
+    @Override
+    public List<Beverage> findAllAffordableBeverages(final double budget) {
+        return beverages.stream()
+                .filter(b -> calculatePriceForOneBottleOf(b.getName()) <= budget)
+                .sorted((b1, b2) ->
+                        Double.compare(calculatePriceForOneBottleOf(b1.getName()),
+                                calculatePriceForOneBottleOf(b2.getName())))
+                .toList();
+   }
+
+    @Override
+    public List<Beverage> getTopFiveBeveragesWithTheLeastAmountOrderedByAmountDescending() {
+        return List.of();
+    }
+
+    @Override
+    public double calculateTotalValueOfAllBeverages() {
+        return 0;
+    }
+
+    @Override
+    public double calculateTotalValueOfAllAlcoholicBeverages() {
+        return 0;
+    }
+
+    @Override
+    public double calculateAverageTemperatureOfAllBeverages() {
+        return 0;
+    }
+
+    @Override
+    public double calculateAverageAlcoholicStrengthOfAllAlcoholicBeverages() {
+        return 0;
+    }
+
+    @Override
+    public double getMultipliedAmountsOfBeverages() {
+        return 0;
     }
 
     // was macht flat map on Stream & Optional

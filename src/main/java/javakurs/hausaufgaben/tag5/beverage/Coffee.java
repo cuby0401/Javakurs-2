@@ -1,12 +1,11 @@
 package javakurs.hausaufgaben.tag5.beverage;
 
-public class Beer extends Beverage implements Alcoholic {
-
-    public Beer(String name, double pricePerLiter, double amount) {
+public class Coffee extends Beverage implements Caffeinated {
+    public Coffee(String name, double pricePerLiter, double amount) {
         super(name, pricePerLiter, amount);
     }
 
-    protected Beer(Beverage base, double amount) {
+    public Coffee(Beverage base, double amount) {
         super(base, amount);
     }
 
@@ -16,7 +15,7 @@ public class Beer extends Beverage implements Alcoholic {
     }
 
     @Override
-    public double getAlcoholStrength() {
-        return 5;
+    public double getCaffeineStrength() {
+        return 60;
     }
 }
