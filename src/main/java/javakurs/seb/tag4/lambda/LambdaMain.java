@@ -119,10 +119,10 @@ public final class LambdaMain
       final Integer i1 = 3;
       final Integer i2 = 4;
 
-      final Predicate<Integer> evenNumberPredicate = null;
+      final Predicate<Integer> evenNumberPredicate = num -> num % 2 == 0;
 
-      final Boolean b1 = null;
-      final Boolean b2 = null;
+      final Boolean b1 = evenNumberPredicate.test(i1);
+      final Boolean b2 = evenNumberPredicate.test(i2);
 
       LambdaTest.checkTask4(b1, b2);
    }
@@ -136,12 +136,12 @@ public final class LambdaMain
       final Integer i1 = 6;
       final Integer i2 = 4;
 
-      final Predicate<Integer> evenNumberPredicate = null;
-      final Predicate<Integer> biggerThan5Predicate = null;
-      final Predicate<Integer> combinedPredicate = null;
+      final Predicate<Integer> evenNumberPredicate = num -> num % 2 == 0;
+      final Predicate<Integer> biggerThan5Predicate = num -> num > 5;
+      final Predicate<Integer> combinedPredicate = evenNumberPredicate.and(biggerThan5Predicate);
 
-      final Boolean b1 = null;
-      final Boolean b2 = null;
+      final Boolean b1 = combinedPredicate.test(i1);
+      final Boolean b2 = combinedPredicate.test(i2);
 
       LambdaTest.checkTask5(b1, b2);
    }
