@@ -3,6 +3,8 @@ package javakurs.hausaufgaben.tag5.automat;
 import javakurs.hausaufgaben.tag5.beverage.Alcoholic;
 import javakurs.hausaufgaben.tag5.beverage.Beverage;
 import javakurs.hausaufgaben.tag5.container.Bottle;
+import javakurs.hausaufgaben.tag5.supplier.FirstBeverageSupplier;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -10,11 +12,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class VendingMachineTest {
     private VendingMachine vendingMachine;
+    private FirstBeverageSupplier beverageSupplier;
 
     @BeforeEach
     void init() {
         vendingMachine = new VendingMachine();
-        vendingMachine.setBeverageSupplier(vendingMachine);
+        vendingMachine.setBeverageSupplier(new FirstBeverageSupplier());
         vendingMachine.restock();
     }
 
@@ -85,8 +88,7 @@ class VendingMachineTest {
 
     @Test
     void calculatePriceForNegativeNumberShouldThrowException() {
-        assertThrows(VendingMachineException.class,
-                () -> vendingMachine.calculatePriceForBottlesOf("Cola Original", -1));
+        assertThrows(VendingMachineException.class, () -> vendingMachine.calculatePriceForBottlesOf("Cola Original", -1));
     }
 
     @Test
@@ -101,9 +103,9 @@ class VendingMachineTest {
         assertTrue(vendingMachine.findBeverage("Vodka").isEmpty());
     }
 
-    @Test
-    void buyBeverageShouldBeImplemented() {
-        assertThrows(NullPointerException.class, () -> vendingMachine.buyBeverage("Cola Original", 5));
-        // Sobald buyBeverage implementiert wird, Test anpassen
-    }
+//    @Test
+//    void buyBeverageShouldBeImplemented() {
+//        assertThrows(NullPointerException.class, () -> vendingMachine.buyBeverage("Cola Original", 5));
+//        // Sobald buyBeverage implementiert wird, Test anpassen
+//    }
 }

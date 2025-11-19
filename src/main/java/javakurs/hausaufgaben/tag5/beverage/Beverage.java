@@ -117,4 +117,10 @@ public abstract class Beverage
    {
       return temperature;
    }
+
+    @Override
+    public String toString() {
+        return "Beverage{" +
+                "name='" + name;
+   }
 }

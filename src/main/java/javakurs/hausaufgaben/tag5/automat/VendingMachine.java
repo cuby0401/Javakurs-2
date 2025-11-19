@@ -26,7 +26,7 @@ import java.util.stream.Collectors;
  *
  * @author Christoph Gragert (cgr@shd.de)
  */
-public class VendingMachine implements VendingMachineDisplayFunctionality, VendingMachineFilterOneFunctionality, VendingMachineSalesFunctionality, BeverageSupplier,VendingMachineFilterTwoFunctionality, VendingMachineStatisticsFunctionality
+public class VendingMachine implements VendingMachineDisplayFunctionality, VendingMachineFilterOneFunctionality, VendingMachineSalesFunctionality,VendingMachineFilterTwoFunctionality, VendingMachineStatisticsFunctionality
 {
     /**
     * Getränke, mit denen der Automat befüllt wurde.
@@ -36,8 +36,7 @@ public class VendingMachine implements VendingMachineDisplayFunctionality, Vendi
     * Getränkezulieferer
     */
    private BeverageSupplier beverageSupplier;
-
-   public void setBeverageSupplier(BeverageSupplier beverageSupplier)
+    public void setBeverageSupplier(BeverageSupplier beverageSupplier)
    {
       this.beverageSupplier = beverageSupplier;
    }
@@ -176,26 +175,6 @@ public class VendingMachine implements VendingMachineDisplayFunctionality, Vendi
     }
 
     @Override
-    public Set<Beverage> supplyBeverages() {
-        return Set.of(
-                new Beer("Beer Classic", 3.50, 4.0),
-                new Beer("Beer Dark", 4.20, 5.0),
-
-                new Cola("Cola Original", 2.80, 6.0),
-                new Cola("Cola Cherry", 3.00, 6.0),
-
-                new EspressoMartini("Espresso Martini Standard", 10.00, 5.0),
-                new EspressoMartini("Espresso Martini Vanilla", 11.00, 5.0),
-
-                new Coffee("Coffee Mild", 2.50, 60.0),
-                new Coffee("Coffee Dark", 2.80, 65.0),
-
-                new Water("Water Still", 1.00, 8.0),
-                new Water("Water Sparkling", 1.20, 8.0)
-        );
-    }
-
-    @Override
     public Map<Class<? extends Beverage>, List<Beverage>> getBeveragesGroupedByClass() {
         return beverages.stream()
                 .collect(Collectors.groupingBy(Beverage::getClass));
@@ -203,7 +182,9 @@ public class VendingMachine implements VendingMachineDisplayFunctionality, Vendi
 
     @Override
     public List<Beverage> getAllBeveragesWithAmountBelowThreshold(int threshold) {
-        return List.of();
+        return beverages.stream()
+                .filter(b -> b.getAmount() < threshold)
+                .toList();
     }
 
     @Override
@@ -239,32 +220,52 @@ public class VendingMachine implements VendingMachineDisplayFunctionality, Vendi
 
     @Override
     public List<Beverage> getTopFiveBeveragesWithTheLeastAmountOrderedByAmountDescending() {
-        return List.of();
+        return beverages.stream()
+                .sorted(Comparator.comparingDouble(Beverage::getAmount))
+                .limit(5)
+                .sorted(Comparator.comparingDouble(Beverage::getAmount).reversed())
+                .toList();
     }
 
     @Override
     public double calculateTotalValueOfAllBeverages() {
-        return 0;
+        return beverages.stream()
+                .mapToDouble(b -> b.getPricePerLiter() * b.getAmount())
+                .sum();
     }
 
     @Override
     public double calculateTotalValueOfAllAlcoholicBeverages() {
-        return 0;
+        return beverages
+                .stream()
+                .filter(beverage -> beverage instanceof Alcoholic)
+                .mapToDouble(beverage -> beverage.getAmount() * beverage.getPricePerLiter())
+                .sum();
     }
 
     @Override
     public double calculateAverageTemperatureOfAllBeverages() {
-        return 0;
+        return beverages.stream()
+                .mapToDouble(Beverage::getTemperature)
+                .average()
+                .orElse(0.0);
     }
 
     @Override
     public double calculateAverageAlcoholicStrengthOfAllAlcoholicBeverages() {
-        return 0;
+        return beverages.stream()
+                .filter(b -> b instanceof Alcoholic)
+                .map(b -> (Alcoholic) b)
+                .mapToDouble(Alcoholic::getAlcoholStrength)
+                .average()
+                .orElse(0.0);
     }
 
     @Override
     public double getMultipliedAmountsOfBeverages() {
-        return 0;
+        return beverages.stream()
+                .map(Beverage::getAmount)
+                .reduce(1.0, (a, b) -> a * b);
     }
 
     // was macht flat map on Stream & Optional

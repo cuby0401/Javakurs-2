@@ -4,8 +4,9 @@ import javakurs.hausaufgaben.tag5.beverage.*;
 
 import java.util.Set;
 
-public interface SecondBeverageSupplier extends BeverageSupplier {
-    default Set<Beverage> supplyBeverages() {
+public class SecondBeverageSupplier implements BeverageSupplier {
+    @Override
+    public Set<Beverage> supplyBeverages() {
         return Set.of(
         new Beer("Beer Classic", 3.50, 4.0),
 
