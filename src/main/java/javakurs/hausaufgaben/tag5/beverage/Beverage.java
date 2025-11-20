@@ -120,7 +120,6 @@ public abstract class Beverage
 
     @Override
     public String toString() {
-        return "Beverage{" +
-                "name='" + name;
+        return "Name = " + name;
    }
 }

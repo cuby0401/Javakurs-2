@@ -3,11 +3,9 @@ package javakurs.hausaufgaben.tag5.automat;
 import javakurs.hausaufgaben.tag5.beverage.*;
 import javakurs.hausaufgaben.tag5.container.Bottle;
 import javakurs.hausaufgaben.tag5.supplier.BeverageSupplier;
-import javakurs.hausaufgaben.tag5.automat.VendingMachineSalesFunctionality;
 
 import java.util.*;
 import java.util.function.Predicate;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 
@@ -133,42 +131,51 @@ public class VendingMachine implements VendingMachineDisplayFunctionality, Vendi
     @Override
     public double calculatePriceForOneBottleOf(String name) {
         Beverage base = findBeverage(name)
-                .orElseThrow(() -> new VendingMachineException("Getränk nicht gefunden: " + name));
+                .orElseThrow(VendingMachineException::new);
         return Bottle.PRICE_FOR_BOTTLE + Bottle.MAX_AMOUNT_IN_LITER * base.getPricePerLiter();
     }
 
     @Override
-    public VendingMachinePurchase buyBeverage(final String name, final double money) {
+    public VendingMachinePurchase buyBeverage(String name, double money)
+    {
+        Optional<Beverage> beverageOptional = findBeverage(name);
+
+        if(beverageOptional.isPresent())
         {
-//            // Getränk suchen
-//            Beverage beverage = beverages.stream()
-//                    .filter(b -> b.getName().equalsIgnoreCase(name))
-//                    .findFirst()
-//                    .orElseThrow(() -> new IllegalArgumentException("Getränk nicht gefunden: " + name));
-//
-//            // Preis für die Flasche berechnen
-//            double price = calculatePriceForBottlesOf(beverage, 1);
-//
-//            if (money < price)
-//            {
-//                throw new IllegalArgumentException("Nicht genug Geld eingeworfen! Preis: " + price);
-//            }
-//
-//            double change = money - price;
-//
-//            // Bottle erzeugen
-//            Bottle<Beverage> bottle = new Bottle<>(beverage);
-//
-//            // Ergebnis zurückgeben
-//            return new VendingMachinePurchase(bottle, change);
-            return null;
+            Beverage beverage = beverageOptional.get();
+
+            double preisBeverage = calculatePriceForOneBottleOf(name);
+
+            if(preisBeverage > money)
+            {
+                System.out.println("Zu wenig Geld.");
+                throw new VendingMachineException();
+            }
+
+            if(beverage.getAmount() <= 0)
+            {
+                System.out.println("Dieses Getränk ist leer");
+                throw new InsufficientBeverageException();
+            }
+
+            double restGeld = money - preisBeverage;
+
+            beverage.setAmount(beverage.getAmount() - 0.5);
+
+            return new VendingMachinePurchase(new Bottle<>(beverage),restGeld);
+        }
+
+        else
+        {
+            System.out.println("Das gesuchte Getränk konnte nicht gefunden werden!");
+            throw new VendingMachineException();
         }
     }
 
     @Override
     public double calculatePriceForBottlesOf(final String name, final int numberOfBottles) {
         if (numberOfBottles < 0) {
-            throw new VendingMachineException("numberOfBottles must be >= 0");
+            throw new VendingMachineException();
         }
         double singlePrice = calculatePriceForOneBottleOf(name);
         return singlePrice * numberOfBottles;
@@ -268,7 +275,29 @@ public class VendingMachine implements VendingMachineDisplayFunctionality, Vendi
                 .reduce(1.0, (a, b) -> a * b);
     }
 
-    // was macht flat map on Stream & Optional
-    //wichtig ist für Stream
-    //die Tests dürfen mit JUnit geschrieben werden
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("VendingMachine: ").append(beverages.size()).append(" Getränke\n");
+
+        // Sortiert nach Name
+        beverages.stream()
+                .sorted(Comparator.comparing(Beverage::getName))
+                .forEach(b -> {
+                    sb.append(" - ").append(b.getName())
+                            .append(" | Menge: ").append(String.format("%.2f L", b.getAmount()))
+                            .append(" | Preis/L: €").append(String.format("%.2f", b.getPricePerLiter()));
+
+                    if (b instanceof Alcoholic) {
+                        sb.append(" | Alkohol: ").append(String.format("%.1f%%", ((Alcoholic)b).getAlcoholStrength()));
+                    }
+                    sb.append(" | Temp: ").append(String.format("%.1f°C", (double)b.getTemperature()));
+                    sb.append("\n");
+                });
+
+        double totalValue = calculateTotalValueOfAllBeverages();
+        sb.append("Gesamtwert aller Getränke: €").append(String.format("%.2f", totalValue));
+
+        return sb.toString();
+    }
 }

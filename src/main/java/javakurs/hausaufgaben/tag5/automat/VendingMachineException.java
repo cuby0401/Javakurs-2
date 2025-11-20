@@ -7,7 +7,7 @@ package javakurs.hausaufgaben.tag5.automat;
  */
 public class VendingMachineException extends RuntimeException
 {
-    public VendingMachineException(String s) {
+    public VendingMachineException() {
 
     }
 }
