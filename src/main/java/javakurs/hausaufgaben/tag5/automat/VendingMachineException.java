@@ -5,9 +5,8 @@ package javakurs.hausaufgaben.tag5.automat;
  *
  * @author Christoph Gragert (cgr@shd.de)
  */
-public class VendingMachineException extends RuntimeException
-{
-    public VendingMachineException() {
+public class VendingMachineException extends RuntimeException {
+    public VendingMachineException(String s) {
 
     }
 }
