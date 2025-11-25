@@ -8,6 +8,11 @@ import javakurs.hausaufgaben.tag5.vendor.Vendor;
 
 import java.util.List;
 
+/**
+ * Main Methode
+ * Es werden zwei verschiedene Vending Machines mithilfe der createVM Methode erstellt und aufgefüllt.
+ * Ausgabe ist für schnelle Übersicht der Getränke im Automaten.
+ */
 public class Main {
     public static void main(String[] args) {
         Vendor vendor = new Vendor();
@@ -16,10 +21,6 @@ public class Main {
                 createVM(new FirstBeverageSupplier()),
                 createVM(new SecondBeverageSupplier())
         ));
-
-        vendor.restock();
-
-        // Automaten befüllen (ruft intern auch restock() der einzelnen Automaten auf)
         vendor.restock();
 
         System.out.println("Alle Getränke:");
@@ -39,6 +40,10 @@ public class Main {
         System.out.println(vendor.findTheCheapestNonAlcoholicBeverage());
     }
 
+    /**
+     * Erstellt neue Vending Machine mithilfe des {@link BeverageSupplier}
+     * @return Übergibt eine neue Vending Machine.
+     */
     private static VendingMachine createVM(BeverageSupplier s) {
         VendingMachine vm = new VendingMachine();
         vm.setBeverageSupplier(s);

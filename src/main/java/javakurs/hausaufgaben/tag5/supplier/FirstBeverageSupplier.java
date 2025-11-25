@@ -4,6 +4,9 @@ import javakurs.hausaufgaben.tag5.beverage.*;
 
 import java.util.Set;
 
+/**
+ * Vorgefertige Lieferartikel.
+ */
 public class FirstBeverageSupplier implements BeverageSupplier{
     @Override
     public Set<Beverage> supplyBeverages() {

@@ -7,7 +7,4 @@ package javakurs.hausaufgaben.tag5.beverage;
  */
 public class InsufficientBeverageException extends RuntimeException
 {
-    public InsufficientBeverageException() {
-
-    }
 }
