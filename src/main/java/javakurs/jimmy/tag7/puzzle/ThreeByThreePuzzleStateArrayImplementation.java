@@ -1,4 +1,4 @@
-package javakurs.jimmy.tag6.puzzle;
+package javakurs.jimmy.tag7.puzzle;
 
 import lombok.EqualsAndHashCode;
 
@@ -17,8 +17,7 @@ import java.util.Set;
  */
 @EqualsAndHashCode
 @SuppressWarnings("java:S106")
-public final class
-ThreeByThreePuzzleStateArrayImplementation implements PuzzleState {
+public final class ThreeByThreePuzzleStateArrayImplementation implements PuzzleState {
 
     public static final ThreeByThreePuzzleStateArrayImplementation DEFAULT_GOAL_STATE =
             new ThreeByThreePuzzleStateArrayImplementation(new byte[]{1, 2, 3, 4, 5, 6, 7, 8, 0});
